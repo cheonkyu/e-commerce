@@ -1,0 +1,16 @@
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: ecommerce
+      MYSQL_USER: cheonkyu
+      MYSQL_PASSWORD: cheonkyu  
+      MYSQL_ROOT_PASSWORD: cheonkyu
+      TZ: Asia/Seoul
+    volumes:
+      - ./db/mysql/data:/var/lib/mysql
+      - ./db/mysql/init:/docker-entrypoint-initdb.d
+    # platform: linux/x86_64
